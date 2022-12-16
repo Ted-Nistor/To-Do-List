@@ -1,0 +1,40 @@
+<%- include ('header') -%>
+
+<!-- This is the repeated section -->
+<% newListItems.forEach((item=>{ %>
+
+<div class="list-container overflow-auto break-words">
+  <div class="text-container">
+    <input type="checkbox" class="check" id="" onchange="this.form.submit()" />
+    <div class="flex flex-col">
+      <p class="text-display"><%= item.name %></p>
+      <p class="text-xs text-gray-400">Posted on <%=item.date%></p>
+    </div>
+  </div>
+  <div class="btn-container">
+    <form action="/delete-item" method="post">
+      <input type="hidden" name="deleteItem" value="<%= item._id %>" />
+      <%- include('delete-button') -%>
+    </form>
+    <!-- <%- include('edit-button') -%> -->
+  </div>
+</div>
+<% })) %>
+
+<!-- The repeated section ends here -->
+<form class="" action="" method="post">
+  <div class="list-container">
+    <input
+      class="rounded-xl shadow-lg w-[90%]"
+      type="text"
+      name="newItem"
+      maxlength=""
+      id=""
+      placeholder="Add a new item "
+      autocomplete="off"
+    />
+    <button class="add-btn" type="submit" name="" value="">+</button>
+  </div>
+</form>
+
+<%- include ('footer') -%>
