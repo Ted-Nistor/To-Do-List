@@ -8,7 +8,9 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
-mongoose.connect("mongodb://localhost:27017/todo-list");
+mongoose.connect(
+  "mongodb+srv://NTSabertooth:adamantium1@testcluster.abq4udc.mongodb.net/todo-list"
+);
 const options = {
   weekday: "long",
   year: "numeric",
